@@ -1,0 +1,29 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Lora-Bold.ttf",
+      "sha1": "6181c8c5c0046d8f9a484293108a27bba37618de"
+    },
+    {
+      "path": "src/assets/fonts/Lora-Regular.ttf",
+      "sha1": "d4178fd9d41a324df797c06803fb0aeba8fbacd4"
+    },
+    {
+      "path": "src/assets/fonts/Lora-SemiBold.ttf",
+      "sha1": "a65c10e353bfd67b7aaba44498063bfc71e829d8"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Regular.ttf",
+      "sha1": "bb895d19b8a1fbe1c57fc89cac5da82fdc8fdef4"
+    },
+    {
+      "path": "src/assets/fonts/Roboto-Medium.ttf",
+      "sha1": "3c6a09fcc6a454924c81af7dff94fc6d399ed79b"
+    },
+    {
+      "path": "src/assets/fonts/Roboto-Regular.ttf",
+      "sha1": "56c5c0d38bde4c1f1549dda43db37b09c608aad3"
+    }
+  ]
+}
