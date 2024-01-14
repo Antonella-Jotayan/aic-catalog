@@ -7,9 +7,9 @@ import {
 } from 'react-native';
 import {SizeConversion} from '@app/utils/sizeConversions';
 import {useGetEvents} from '@app/api/queries/Event/hooks/useGetEvents';
-import {EventItem} from './components/EventItem/EventItem';
-import type {FilteredEventDTO} from '@app/api/models/Event/Event';
+import type {EventDTO} from '@app/api/models/Event/Event';
 import {Text} from '@app/components/ui/Text/Text';
+import {EventCard} from '@app/components/EventCard/EventCard';
 
 const LIMIT = 15;
 const TOP_SPACE = SizeConversion.pixelSizeVertical(30);
@@ -28,8 +28,8 @@ const Events = () => {
     fetchNextPage();
   };
 
-  const renderItem: ListRenderItem<FilteredEventDTO> = useCallback(({item}) => {
-    return <EventItem key={item.id} item={item} />;
+  const renderItem: ListRenderItem<EventDTO> = useCallback(({item}) => {
+    return <EventCard key={item.id} item={item} isMinimalContent={false} />;
   }, []);
 
   const ListFooterComponent = useCallback(() => {

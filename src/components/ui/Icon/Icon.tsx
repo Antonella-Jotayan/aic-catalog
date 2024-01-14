@@ -12,12 +12,7 @@ export type SvgImageProps = SvgProps & {
   type?: 'icon' | 'illustration';
 };
 
-const Icon = ({
-  name,
-  color = COLORS.black,
-
-  ...props
-}: SvgImageProps) => {
+const Icon = ({name, color = COLORS.black, ...props}: SvgImageProps) => {
   const SVG = SVG_IMAGES[name];
   return <SVG fill={color} fillOpacity={1} {...props} accessible />;
 };
