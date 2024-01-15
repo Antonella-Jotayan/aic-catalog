@@ -1,81 +1,95 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+# Art Insitute of Chicago Catalog (React Native)
 
-## Step 1: Start the Metro Server
+This is an app in which you will be able to:
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- See events exposed by the Art Institute of Chicago as well as Artworks.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- Add and remove events from a favorites list and be able to see them even after having closed the app.
 
-```bash
-# using npm
-npm start
+- Add events to your calendar (button available just for iOS)
 
-# OR using Yarn
-yarn start
-```
 
-## Step 2: Start your Application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+## Getting Started 🚀
 
-### For Android
+Clone the project in your computer.
 
-```bash
-# using npm
-npm run android
 
-# OR using Yarn
-yarn android
-```
+### Prerequisites 📋
 
-### For iOS
+Have yarn intalled in your computer.
 
-```bash
-# using npm
-npm run ios
+Have React Native environment already set up. [React Native Docs](https://reactnative.dev/docs/environment-setup)
 
-# OR using Yarn
-yarn ios
-```
+### Installation 🔧
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Run "yarn" in the root of the project to install dependencies
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+Run "pod install" in the ios folder to install and link native dependencies
 
-## Step 3: Modifying your App
+Now you will be able to initialize the project with "yarn start --reset-cache" and after that "yarn ios" or "yarn android" depending the platform you want to build for
 
-Now that you have successfully run the app, let's modify it.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## Developed using 🛠️
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+* [React Native](https://reactnative.dev/)
+* [TypeScript](https://www.typescriptlang.org/)
+* [Zustand](https://zustand-demo.pmnd.rs/)
+* [React Native Mmkv](https://github.com/mrousavy/react-native-mmkv)
+* [React Query](https://tanstack.com/query/latest)
+* [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/)
+* [Art Institute of Chicago API](https://api.artic.edu/docs/#introduction)
 
-## Congratulations! :tada:
 
-You've successfully run and modified your React Native App. :partying_face:
+## Author ✒️
 
-### Now what?
+* [Antonella Jotayan](https://www.linkedin.com/in/antonellajotayan/)
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
 
-# Troubleshooting
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Demo Videos
 
-# Learn More
 
-To learn more about React Native, take a look at the following resources:
+|android|ios|
+| --- | --- |
+|<img width="200" src="https://github.com/Antonella-Jotayan/aic-catalog/assets/78166670/46dbe727-0c5f-45d7-9e59-3c6859fc53bb">|<img width="200" src="https://github.com/Antonella-Jotayan/aic-catalog/assets/78166670/23de85fd-fd38-417b-99fe-99c07634ebc0">|
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-# aic-catalog
-# aic-catalog
+## Screenshots
+
+
+### iOS
+|Events screen|Event Screen|Favorite Events Screen|
+| --- | --- | --- |
+|<p align="center"><img width="190" alt="ios-events" src="https://github.com/Antonella-Jotayan/aic-catalog/assets/78166670/09d84358-af81-4da5-9f20-68134450e5f9"></p>|<p align="center"><img width="200" alt="ios-event" src="https://github.com/Antonella-Jotayan/aic-catalog/assets/78166670/7f3eb154-184d-4639-a104-1509fcfcd526"></p>|<p align="center"><img width="200" alt="ios-favorites" src="https://github.com/Antonella-Jotayan/aic-catalog/assets/78166670/9580b1ef-99ce-436e-bff3-dacbc2d9fd4e"></p>|
+
+|Arworks screen|Artwork Screen|
+| --- | --- |
+|<p align="center"><img width="200"  alt="ios-artworks" src="https://github.com/Antonella-Jotayan/aic-catalog/assets/78166670/b663ac87-8673-4810-994e-75ff7044b35e"></p>|<p align="center"><img width="200"  alt="ios-artwork" src="https://github.com/Antonella-Jotayan/aic-catalog/assets/78166670/651a2328-418b-4c1c-81e1-177ca20ed2de"></p>|
+
+
+
+### Android
+|Events screen|Event Screen|Favorite Events Screen|
+| --- | --- | --- |
+|<p align="center"><img width="190" alt="android-events" src="https://github.com/Antonella-Jotayan/aic-catalog/assets/78166670/97c22209-0bd1-48e3-a4e3-2ca13273dd0c"></p>|<p align="center"><img width="200" alt="android-event" src="https://github.com/Antonella-Jotayan/aic-catalog/assets/78166670/b851b14f-ef93-44f5-99f2-1bb3f631dc13"></p>|<p align="center"><img width="200"  alt="android-favorites" src="https://github.com/Antonella-Jotayan/aic-catalog/assets/78166670/bafc8432-2454-4b57-8330-0ef32d7b47d4"></p>|
+
+|Arworks screen|Artwork Screen|
+| --- | --- |
+|<p align="center"><img width="200"  alt="android-artworks" src="https://github.com/Antonella-Jotayan/aic-catalog/assets/78166670/a575bc64-bbde-4d84-8f48-a40490936eaf"></p>|<p align="center"><img width="200"  alt="android-artwork" src="https://github.com/Antonella-Jotayan/aic-catalog/assets/78166670/6044616c-25c5-4293-a4f9-1de8bfb5c9c8"></p>|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
