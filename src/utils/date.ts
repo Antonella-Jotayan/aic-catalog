@@ -1,15 +1,36 @@
-const changeTime = (dateString: string, newTime: string) => {
-  let date = new Date(dateString);
+interface EventDateParams {
+  startDate: string;
+  startTime: string;
+  endDate: string;
+  endTime: string;
+}
 
-  const [newHour = 0, newMinute = 0, newSecond = 0] = newTime.split(':');
+const getEventStartAndEndDate = ({
+  startDate,
+  startTime,
+  endDate,
+  endTime,
+}: EventDateParams) => {
+  let start = new Date(startDate);
+  let end = new Date(endDate);
 
-  date.setHours(Number(newHour), Number(newMinute), Number(newSecond));
+  const [startHour = 0, startMinute = 0, startSecond = 0] =
+    startTime.split(':');
+  const [endHour = 0, endMinute = 0, endSecond = 0] = endTime.split(':');
 
-  let newDateString = date.toISOString();
+  start.setHours(Number(startHour), Number(startMinute), Number(startSecond));
+  end.setHours(Number(endHour), Number(endMinute), Number(endSecond));
 
-  return newDateString;
+  if (endTime === '00:00') {
+    end.setDate(end.getDate() + 1);
+  }
+
+  let newStartDateString = start.toISOString();
+  let newEndDateString = end.toISOString();
+
+  return {startDate: newStartDateString, endDate: newEndDateString};
 };
 
 export const DateUtils = {
-  changeTime,
+  getEventStartAndEndDate,
 };

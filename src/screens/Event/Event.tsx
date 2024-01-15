@@ -64,10 +64,14 @@ const Event = () => {
 
   const onAddToCalendarPress = async () => {
     try {
-      await PermissionUtils.requestCalendarPermission();
+      await PermissionUtils.requestCalendarPermissions();
 
-      const startDate = DateUtils.changeTime(data.start_date, data.start_time);
-      const endDate = DateUtils.changeTime(data.end_date, data.end_time);
+      const {startDate, endDate} = DateUtils.getEventStartAndEndDate({
+        startDate: data.start_date,
+        startTime: data.start_time,
+        endDate: data.end_date,
+        endTime: data.end_time,
+      });
 
       CalendarModule.createCalendarEvent(
         data.title,
@@ -169,15 +173,16 @@ const Event = () => {
 export {Event};
 
 const styles = StyleSheet.create({
+  safeArea: {backgroundColor: COLORS.white, flex: 1},
   scrollview: {
-    backgroundColor: COLORS.white,
+    flexGrow: 1,
   },
-  safeArea: {backgroundColor: COLORS.white},
   loading: {alignSelf: 'center', flex: 1},
   contentContainer: {
     paddingHorizontal: HORIZONTAL_SPACE,
     backgroundColor: COLORS.white,
     paddingBottom: SizeConversion.pixelSizeVertical(10),
+    flexGrow: 1,
   },
 
   image: {

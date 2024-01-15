@@ -1,39 +1,32 @@
 import {Platform} from 'react-native';
-import {check, PERMISSIONS, request, RESULTS} from 'react-native-permissions';
+import {check, PERMISSIONS, RESULTS, request} from 'react-native-permissions';
 
-const requestCalendarPermission = async () => {
+const requestCalendarPermissions = async () => {
   try {
     if (Platform.OS === 'ios') {
-      check(PERMISSIONS.IOS.CALENDARS_WRITE_ONLY)
-        .then(result => {
-          switch (result) {
-            case RESULTS.UNAVAILABLE:
-              console.log(
-                'This feature is not available (on this device / in this context)',
-              );
-              break;
-            case RESULTS.DENIED:
-              console.log(
-                'The permission has not been requested / is denied but requestable',
-              );
-              request(PERMISSIONS.IOS.CALENDARS_WRITE_ONLY).then(result => {
-                console.log('result', result);
-              });
-
-              break;
-            case RESULTS.GRANTED:
-              console.log('The permission is granted');
-              break;
-            case RESULTS.BLOCKED:
-              console.log(
-                'The permission is denied and not requestable anymore',
-              );
-              break;
+      const result = await check(PERMISSIONS.IOS.CALENDARS);
+      switch (result) {
+        case RESULTS.UNAVAILABLE:
+          throw new Error(
+            'This feature is not available (on this device / in this context)',
+          );
+        case RESULTS.DENIED:
+          try {
+            await request(PERMISSIONS.IOS.CALENDARS);
+          } catch (error) {
+            throw new Error(
+              'The permission has not been requested / is denied but requestable',
+            );
           }
-        })
-        .catch(error => {
-          throw error;
-        });
+          break;
+        case RESULTS.GRANTED:
+          console.log('The permission is granted');
+          break;
+        case RESULTS.BLOCKED:
+          throw new Error(
+            'The permission is denied and not requestable anymore',
+          );
+      }
     }
   } catch (err) {
     console.warn(err);
@@ -41,5 +34,5 @@ const requestCalendarPermission = async () => {
 };
 
 export const PermissionUtils = {
-  requestCalendarPermission,
+  requestCalendarPermissions,
 };

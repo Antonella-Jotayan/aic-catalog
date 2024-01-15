@@ -31,8 +31,10 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
-	<key>NSCalendarsWriteOnlyAccessUsageDescription</key>
+	<key>NSCalendarsUsageDescription</key>
 	<string>This app requires write-only access to your calendars to create events for you.</string>
+	<key>NSCalendarsFullAccessUsageDescription</key>
+	<string>This app requires full access to your calendars to manage events for you.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UIAppFonts</key>
