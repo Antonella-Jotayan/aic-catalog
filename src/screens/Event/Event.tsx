@@ -4,6 +4,7 @@ import {SizeConversion} from '@app/utils/sizeConversions';
 import {useRoute} from '@react-navigation/native';
 import React, {useMemo} from 'react';
 import {
+  Alert,
   Dimensions,
   Image,
   Platform,
@@ -21,6 +22,11 @@ import {useFavoritesStore} from '@app/store/FavoritesStore';
 import {useShallow} from 'zustand/react/shallow';
 import {NoData} from '@app/components/NoData/NoData';
 import {LoadingData} from '@app/components/LoadingData/LoadingData';
+import {NativeModules} from 'react-native';
+import {DateUtils} from '@app/utils/date';
+import {PermissionUtils} from '@app/utils/permissions';
+
+const {CalendarModule} = NativeModules;
 
 const HORIZONTAL_SPACE = SizeConversion.pixelSizeHorizontal(16);
 const HIT_SLOP = {bottom: 40, left: 40, right: 40, top: 40};
@@ -56,6 +62,30 @@ const Event = () => {
     toggleFavorite(data);
   };
 
+  const onAddToCalendarPress = async () => {
+    try {
+      await PermissionUtils.requestCalendarPermission();
+
+      const startDate = DateUtils.changeTime(data.start_date, data.start_time);
+      const endDate = DateUtils.changeTime(data.end_date, data.end_time);
+
+      CalendarModule.createCalendarEvent(
+        data.title,
+        data.location,
+        startDate,
+        endDate,
+        error => {
+          Alert.alert(`Error found! ${error}`);
+        },
+        () => {
+          Alert.alert(`Event ${data.title} added to your calendar`);
+        },
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <SafeAreaView edges={['bottom']} style={styles.safeArea}>
       <ScrollView style={styles.scrollview}>
@@ -80,7 +110,9 @@ const Event = () => {
           <Text text={data.title} style={styles.title} variant="title-l-bold" />
           {Platform.OS === 'ios' ? (
             <View style={styles.calendarBtnContainer}>
-              <TouchableOpacity style={styles.calendarBtn}>
+              <TouchableOpacity
+                style={styles.calendarBtn}
+                onPress={onAddToCalendarPress}>
                 <Icon name="Calendar" />
                 <Text text="Add to calendar" style={styles.calendarBtnText} />
               </TouchableOpacity>
