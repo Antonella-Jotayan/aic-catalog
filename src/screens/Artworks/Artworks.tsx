@@ -1,5 +1,5 @@
 import {useGetArtworks} from '@app/api/queries/Artwork/hooks/useGetArtworks';
-import React, {useCallback} from 'react';
+import React, {useCallback, useRef} from 'react';
 import {
   ActivityIndicator,
   FlatList,
@@ -12,12 +12,16 @@ import {SizeConversion} from '@app/utils/sizeConversions';
 import {LoadingData} from '@app/components/LoadingData/LoadingData';
 import {NoData} from '@app/components/NoData/NoData';
 import {COLORS} from '@app/theme/colors';
+import {useScrollToTop} from '@react-navigation/native';
 
 const LIMIT = 16;
 const TOP_SPACE = SizeConversion.pixelSizeVertical(30);
 const HORIZONTAL_SPACE = SizeConversion.pixelSizeHorizontal(16);
 
 const Artworks = () => {
+  const flatlistRef = useRef<FlatList>(null);
+  useScrollToTop(flatlistRef);
+
   const {data, fetchNextPage, isLoading, isError, isFetchingNextPage} =
     useGetArtworks({
       limit: LIMIT,
@@ -38,7 +42,7 @@ const Artworks = () => {
   }, [isFetchingNextPage]);
 
   const ItemSeparatorComponent = useCallback(() => {
-    return <View style={{height: SizeConversion.heightPixel(10)}} />;
+    return <View style={styles.itemSeparator} />;
   }, []);
 
   const onEndReached = () => {
@@ -58,6 +62,7 @@ const Artworks = () => {
 
   return (
     <FlatList
+      ref={flatlistRef}
       style={styles.containerStyle}
       contentContainerStyle={styles.contentContainerStyle}
       data={data}
@@ -82,6 +87,7 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: COLORS.white,
   },
+  itemSeparator: {height: SizeConversion.heightPixel(10)},
   contentContainerStyle: {
     paddingTop: TOP_SPACE,
     paddingHorizontal: HORIZONTAL_SPACE,

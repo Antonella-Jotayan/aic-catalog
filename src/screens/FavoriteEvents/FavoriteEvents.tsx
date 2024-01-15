@@ -4,7 +4,8 @@ import {NoData} from '@app/components/NoData/NoData';
 import {useFavoritesStore} from '@app/store/FavoritesStore';
 import {COLORS} from '@app/theme/colors';
 import {SizeConversion} from '@app/utils/sizeConversions';
-import React, {useCallback} from 'react';
+import {useScrollToTop} from '@react-navigation/native';
+import React, {useCallback, useRef} from 'react';
 import {FlatList, ListRenderItem, StyleSheet} from 'react-native';
 import {useShallow} from 'zustand/react/shallow';
 
@@ -12,6 +13,9 @@ const TOP_SPACE = SizeConversion.pixelSizeVertical(30);
 const HORIZONTAL_SPACE = SizeConversion.pixelSizeHorizontal(16);
 
 const FavoriteEvents = () => {
+  const flatlistRef = useRef<FlatList>(null);
+  useScrollToTop(flatlistRef);
+
   const {favorites} = useFavoritesStore(
     useShallow(state => ({
       favorites: state.favorites,
@@ -32,6 +36,7 @@ const FavoriteEvents = () => {
 
   return (
     <FlatList
+      ref={flatlistRef}
       style={styles.containerStyle}
       contentContainerStyle={styles.contentContainerStyle}
       maxToRenderPerBatch={10}

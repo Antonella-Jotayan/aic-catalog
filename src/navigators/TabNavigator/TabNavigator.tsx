@@ -14,6 +14,14 @@ const tabBarIcon =
   ({focused}: {focused: boolean}) =>
     <Icon name={name} color={focused ? COLORS.black : COLORS.gray[400]} />;
 
+const options = {
+  favorites: {
+    tabBarIcon: tabBarIcon('HeartOutlined'),
+    headerTitle: 'Favorite Events',
+  },
+  artworks: {tabBarIcon: tabBarIcon('LightBulb')},
+};
+
 export const TabNavigator = () => {
   return (
     <BottomTab.Navigator screenOptions={{tabBarShowLabel: false}}>
@@ -24,12 +32,12 @@ export const TabNavigator = () => {
       />
       <BottomTab.Screen
         name="Favorites"
-        options={{tabBarIcon: tabBarIcon('HeartOutlined')}}
+        options={options.favorites}
         component={FavoriteEvents}
       />
       <BottomTab.Screen
         name="Artworks"
-        options={{tabBarIcon: tabBarIcon('LightBulb')}}
+        options={options.artworks}
         component={Artworks}
       />
     </BottomTab.Navigator>

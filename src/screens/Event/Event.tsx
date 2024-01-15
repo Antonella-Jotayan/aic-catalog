@@ -22,7 +22,7 @@ import {useShallow} from 'zustand/react/shallow';
 import {NoData} from '@app/components/NoData/NoData';
 import {LoadingData} from '@app/components/LoadingData/LoadingData';
 
-const HORIZONTAL_SPACE = SizeConversion.pixelSizeHorizontal(30);
+const HORIZONTAL_SPACE = SizeConversion.pixelSizeHorizontal(16);
 const HIT_SLOP = {bottom: 40, left: 40, right: 40, top: 40};
 const defaultImage = require('../../assets/images/placeholder-image.png');
 
@@ -39,8 +39,6 @@ const Event = () => {
       favorites: state.favorites,
     })),
   );
-
-  console.log('favorites', favorites);
 
   const alreadyFavourited = useMemo(() => {
     return favorites.some(({id}) => id === data?.id);
@@ -60,7 +58,7 @@ const Event = () => {
 
   return (
     <SafeAreaView edges={['bottom']} style={styles.safeArea}>
-      <ScrollView>
+      <ScrollView style={styles.scrollview}>
         <Image
           style={styles.image}
           defaultSource={defaultImage}
@@ -139,11 +137,15 @@ const Event = () => {
 export {Event};
 
 const styles = StyleSheet.create({
+  scrollview: {
+    backgroundColor: COLORS.white,
+  },
   safeArea: {backgroundColor: COLORS.white},
   loading: {alignSelf: 'center', flex: 1},
   contentContainer: {
     paddingHorizontal: HORIZONTAL_SPACE,
     backgroundColor: COLORS.white,
+    paddingBottom: SizeConversion.pixelSizeVertical(10),
   },
 
   image: {

@@ -11,7 +11,7 @@ import {LoadingData} from '@app/components/LoadingData/LoadingData';
 import {NoData} from '@app/components/NoData/NoData';
 import {RootNavigatorRouteProp} from '@app/navigators/RootNavigator/types';
 
-const HORIZONTAL_SPACE = SizeConversion.pixelSizeHorizontal(30);
+const HORIZONTAL_SPACE = SizeConversion.pixelSizeHorizontal(16);
 const defaultImage = require('../../assets/images/placeholder-image.png');
 
 const Artwork = () => {
@@ -30,7 +30,7 @@ const Artwork = () => {
 
   return (
     <SafeAreaView edges={['bottom']} style={styles.safeArea}>
-      <ScrollView>
+      <ScrollView style={styles.scrollview}>
         <View style={styles.imageContainer}>
           <Image
             style={styles.image}
@@ -82,10 +82,6 @@ const Artwork = () => {
             />
           ) : null}
 
-          {data?.department_title ? (
-            <Section title="Department" description={data?.department_title} />
-          ) : null}
-
           {data?.medium_display ? (
             <Section
               title="Short Description"
@@ -105,10 +101,14 @@ const Artwork = () => {
 export {Artwork};
 
 const styles = StyleSheet.create({
+  scrollview: {
+    backgroundColor: COLORS.white,
+  },
   safeArea: {backgroundColor: COLORS.white},
   contentContainer: {
     paddingHorizontal: HORIZONTAL_SPACE,
     backgroundColor: COLORS.white,
+    paddingBottom: SizeConversion.pixelSizeVertical(10),
   },
   image: {
     width: Dimensions.get('window').width,
