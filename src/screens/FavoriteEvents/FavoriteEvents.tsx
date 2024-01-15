@@ -25,7 +25,7 @@ const FavoriteEvents = () => {
   if (!favorites.length) {
     return (
       <NoData
-        text={`You don't have any favorite event yet.\nTry adding one!`}
+        text={"You don't have any favorite event yet.\nTry adding one!"}
       />
     );
   }

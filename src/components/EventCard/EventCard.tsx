@@ -3,14 +3,14 @@ import React, {FC} from 'react';
 import {SizeConversion} from '@app/utils/sizeConversions';
 import {COLORS} from '@app/theme/colors';
 import {useNavigation} from '@react-navigation/native';
-import {EventDTO} from '@app/api/models/Event/Event';
+import {FilteredEventDTO} from '@app/api/models/Event/Event';
 import {eventCardTextUtil} from '@app/utils/eventCardText';
 import {Text} from '../ui/Text/Text';
 
 const defaultImage = require('../../assets/images/placeholder-image.png');
 
 interface EventCardProps {
-  item: EventDTO;
+  item: FilteredEventDTO;
   isMinimalContent?: boolean;
 }
 

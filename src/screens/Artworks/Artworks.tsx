@@ -34,6 +34,7 @@ const Artworks = () => {
     if (isFetchingNextPage) {
       return <ActivityIndicator style={styles.listFooterComponent} />;
     }
+    return null;
   }, [isFetchingNextPage]);
 
   const ItemSeparatorComponent = useCallback(() => {
@@ -67,7 +68,7 @@ const Artworks = () => {
       renderItem={renderItem}
       onEndReached={onEndReached}
       onEndReachedThreshold={0.5}
-      ListFooterComponent={ListFooterComponent}
+      ListFooterComponent={<ListFooterComponent />}
       ItemSeparatorComponent={ItemSeparatorComponent}
     />
   );

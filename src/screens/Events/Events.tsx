@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {SizeConversion} from '@app/utils/sizeConversions';
 import {useGetEvents} from '@app/api/queries/Event/hooks/useGetEvents';
-import type {EventDTO} from '@app/api/models/Event/Event';
+import type {FilteredEventDTO} from '@app/api/models/Event/Event';
 import {EventCard} from '@app/components/EventCard/EventCard';
 import {LoadingData} from '@app/components/LoadingData/LoadingData';
 import {NoData} from '@app/components/NoData/NoData';
@@ -30,7 +30,7 @@ const Events = () => {
     fetchNextPage();
   };
 
-  const renderItem: ListRenderItem<EventDTO> = useCallback(({item}) => {
+  const renderItem: ListRenderItem<FilteredEventDTO> = useCallback(({item}) => {
     return <EventCard key={item.id} item={item} isMinimalContent={false} />;
   }, []);
 
@@ -38,6 +38,7 @@ const Events = () => {
     if (isFetchingNextPage) {
       return <ActivityIndicator style={styles.listFooterComponent} />;
     }
+    return null;
   }, [isFetchingNextPage]);
 
   if (isLoading) {
@@ -58,7 +59,7 @@ const Events = () => {
       renderItem={renderItem}
       onEndReached={onEndReached}
       onEndReachedThreshold={0.5}
-      ListFooterComponent={ListFooterComponent}
+      ListFooterComponent={<ListFooterComponent />}
     />
   );
 };
