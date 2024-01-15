@@ -1,11 +1,10 @@
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import React, {FC} from 'react';
 import {SizeConversion} from '@app/utils/sizeConversions';
 import {Text} from '@app/components/ui/Text/Text';
 import {COLORS} from '@app/theme/colors';
 import {TextUtils} from '../../utils/formatTitle';
 import {useNavigation} from '@react-navigation/native';
-import FastImage from 'react-native-fast-image';
 
 interface ArtworkItem {
   item: FilteredArtworkDTO;
@@ -23,14 +22,13 @@ const ArtworkItem: FC<ArtworkItem> = ({item}) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handleImagePress} activeOpacity={0.8}>
-        <FastImage
+        <Image
           style={styles.image}
           defaultSource={defaultImage}
           source={{
             uri: `https://www.artic.edu/iiif/2/${item.image_id}/full/843,/0/default.jpg`,
-            priority: FastImage.priority.normal,
           }}
-          resizeMode={FastImage.resizeMode.cover}
+          resizeMode={'cover'}
         />
       </TouchableOpacity>
 

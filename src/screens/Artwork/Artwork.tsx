@@ -4,10 +4,9 @@ import {COLORS} from '@app/theme/colors';
 import {SizeConversion} from '@app/utils/sizeConversions';
 import {useRoute} from '@react-navigation/native';
 import React from 'react';
-import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
+import {Dimensions, Image, ScrollView, StyleSheet, View} from 'react-native';
 import Section from './components/Section/Section';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import FastImage from 'react-native-fast-image';
 import {LoadingData} from '@app/components/LoadingData/LoadingData';
 import {NoData} from '@app/components/NoData/NoData';
 import {RootNavigatorRouteProp} from '@app/navigators/RootNavigator/types';
@@ -33,14 +32,13 @@ const Artwork = () => {
     <SafeAreaView edges={['bottom']}>
       <ScrollView>
         <View style={styles.imageContainer}>
-          <FastImage
+          <Image
             style={styles.image}
             defaultSource={defaultImage}
             source={{
               uri: `https://www.artic.edu/iiif/2/${data?.image_id}/full/843,/0/default.jpg`,
-              priority: FastImage.priority.normal,
             }}
-            resizeMode={FastImage.resizeMode.contain}
+            resizeMode={'contain'}
           />
         </View>
         <View style={styles.contentContainer}>

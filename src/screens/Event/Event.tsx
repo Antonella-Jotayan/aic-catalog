@@ -3,12 +3,17 @@ import {COLORS} from '@app/theme/colors';
 import {SizeConversion} from '@app/utils/sizeConversions';
 import {useRoute} from '@react-navigation/native';
 import React, {useMemo} from 'react';
-import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import Section from './components/Section/Section';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useGetEvent} from '@app/api/queries/Event/hooks/useGetEvent';
 import {RootNavigatorRouteProp} from '@app/navigators/RootNavigator/types';
-import FastImage from 'react-native-fast-image';
 import {Icon} from '@app/components/ui/Icon/Icon';
 import {useFavoritesStore} from '@app/store/FavoritesStore';
 import {useShallow} from 'zustand/react/shallow';
@@ -54,14 +59,13 @@ const Event = () => {
   return (
     <SafeAreaView edges={['bottom']}>
       <ScrollView>
-        <FastImage
+        <Image
           style={styles.image}
           defaultSource={defaultImage}
           source={{
             uri: data.image_url,
-            priority: FastImage.priority.normal,
           }}
-          resizeMode={FastImage.resizeMode.cover}
+          resizeMode={'cover'}
         />
         <TouchableOpacity
           onPress={handleFavorite}

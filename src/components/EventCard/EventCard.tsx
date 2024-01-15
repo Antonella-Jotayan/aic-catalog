@@ -1,8 +1,7 @@
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import React, {FC} from 'react';
 import {SizeConversion} from '@app/utils/sizeConversions';
 import {COLORS} from '@app/theme/colors';
-import FastImage from 'react-native-fast-image';
 import {useNavigation} from '@react-navigation/native';
 import {EventDTO} from '@app/api/models/Event/Event';
 import {eventCardTextUtil} from '@app/utils/eventCardText';
@@ -30,14 +29,13 @@ const EventCard: FC<EventCardProps> = ({item, isMinimalContent = true}) => {
         onPress={handleImagePress}
         activeOpacity={0.8}
         style={styles.imageContainer}>
-        <FastImage
+        <Image
           style={styles.image}
           defaultSource={defaultImage}
           source={{
             uri: `${item.image_url}`,
-            priority: FastImage.priority.normal,
           }}
-          resizeMode={FastImage.resizeMode.cover}
+          resizeMode={'cover'}
         />
       </TouchableOpacity>
 
