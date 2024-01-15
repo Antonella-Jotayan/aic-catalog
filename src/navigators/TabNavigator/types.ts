@@ -8,9 +8,9 @@ import {
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 export type TabNavigatorParams = {
-  Home: undefined;
   Favorites: undefined;
   Events: undefined;
+  Artworks: undefined;
 };
 
 export type TabNavigatorProps = NativeStackNavigationProp<TabNavigatorParams>;

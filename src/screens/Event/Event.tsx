@@ -4,7 +4,9 @@ import {SizeConversion} from '@app/utils/sizeConversions';
 import {useRoute} from '@react-navigation/native';
 import React, {useMemo} from 'react';
 import {
+  Dimensions,
   Image,
+  Platform,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
@@ -57,15 +59,13 @@ const Event = () => {
   };
 
   return (
-    <SafeAreaView edges={['bottom']}>
+    <SafeAreaView edges={['bottom']} style={styles.safeArea}>
       <ScrollView>
         <Image
           style={styles.image}
           defaultSource={defaultImage}
-          source={{
-            uri: data.image_url,
-          }}
-          resizeMode={'cover'}
+          source={data.image_url ? {uri: data.image_url} : defaultImage}
+          resizeMode="cover"
         />
         <TouchableOpacity
           onPress={handleFavorite}
@@ -80,26 +80,56 @@ const Event = () => {
 
         <View style={styles.contentContainer}>
           <Text text={data.title} style={styles.title} variant="title-l-bold" />
-          <View style={styles.calendarBtnContainer}>
-            <TouchableOpacity style={styles.calendarBtn}>
-              <Icon name="Calendar" />
-              <Text text="Add to calendar" style={styles.calendarBtnText} />
-            </TouchableOpacity>
-          </View>
-          <Section title="Description" description={data.short_description} />
-          <Section title="Location" description={data.location} />
-          <Section
-            title="Time"
-            description={`${data.start_time} to ${data.end_time} `}
-          />
-          <Section
-            title="Tickets"
-            description={data.is_ticketed ? 'Need Ticket' : 'No Ticket Needed'}
-          />
-          <Section
-            title="Modality"
-            description={data.is_virtual_event ? 'Virtual' : 'On Site'}
-          />
+          {Platform.OS === 'ios' ? (
+            <View style={styles.calendarBtnContainer}>
+              <TouchableOpacity style={styles.calendarBtn}>
+                <Icon name="Calendar" />
+                <Text text="Add to calendar" style={styles.calendarBtnText} />
+              </TouchableOpacity>
+            </View>
+          ) : null}
+
+          {data.short_description ? (
+            <Section
+              title="Description"
+              description={data.short_description}
+              isHtml
+            />
+          ) : null}
+
+          {data.location ? (
+            <Section title="Location" description={data.location} />
+          ) : null}
+
+          {data.start_date ? (
+            <Section
+              title="Date"
+              description={`${new Date(data.start_date).toLocaleDateString()} `}
+            />
+          ) : null}
+
+          {data.start_time ? (
+            <Section
+              title="Time"
+              description={`${data.start_time} to ${data.end_time} `}
+            />
+          ) : null}
+
+          {data.is_ticketed ? (
+            <Section
+              title="Tickets"
+              description={
+                data.is_ticketed ? 'Need Ticket' : 'No Ticket Needed'
+              }
+            />
+          ) : null}
+
+          {data.is_virtual_event ? (
+            <Section
+              title="Modality"
+              description={data.is_virtual_event ? 'Virtual' : 'On Site'}
+            />
+          ) : null}
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -109,12 +139,15 @@ const Event = () => {
 export {Event};
 
 const styles = StyleSheet.create({
+  safeArea: {backgroundColor: COLORS.white},
   loading: {alignSelf: 'center', flex: 1},
   contentContainer: {
     paddingHorizontal: HORIZONTAL_SPACE,
+    backgroundColor: COLORS.white,
   },
 
   image: {
+    width: Dimensions.get('window').width,
     height: SizeConversion.heightPixel(200),
   },
   favIcon: {

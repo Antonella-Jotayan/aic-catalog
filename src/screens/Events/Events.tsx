@@ -11,6 +11,7 @@ import type {EventDTO} from '@app/api/models/Event/Event';
 import {EventCard} from '@app/components/EventCard/EventCard';
 import {LoadingData} from '@app/components/LoadingData/LoadingData';
 import {NoData} from '@app/components/NoData/NoData';
+import {COLORS} from '@app/theme/colors';
 
 const LIMIT = 15;
 const TOP_SPACE = SizeConversion.pixelSizeVertical(30);
@@ -52,6 +53,8 @@ const Events = () => {
       style={styles.containerStyle}
       contentContainerStyle={styles.contentContainerStyle}
       data={data}
+      maxToRenderPerBatch={10}
+      windowSize={5}
       renderItem={renderItem}
       onEndReached={onEndReached}
       onEndReachedThreshold={0.5}
@@ -66,6 +69,7 @@ const styles = StyleSheet.create({
   loading: {alignSelf: 'center', flex: 1},
   containerStyle: {
     flex: 1,
+    backgroundColor: COLORS.white,
   },
   contentContainerStyle: {
     paddingTop: TOP_SPACE,

@@ -24,7 +24,7 @@ const Text: FC<TextProps> = ({
 
 export {Text};
 
-const textStyles = StyleSheet.create({
+export const textStyles = StyleSheet.create({
   'title-l-bold': {
     color: COLORS.black,
     fontFamily: 'Lora-Bold',

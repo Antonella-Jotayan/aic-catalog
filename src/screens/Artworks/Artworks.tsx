@@ -11,6 +11,7 @@ import {ArtworkItem} from './components';
 import {SizeConversion} from '@app/utils/sizeConversions';
 import {LoadingData} from '@app/components/LoadingData/LoadingData';
 import {NoData} from '@app/components/NoData/NoData';
+import {COLORS} from '@app/theme/colors';
 
 const LIMIT = 16;
 const TOP_SPACE = SizeConversion.pixelSizeVertical(30);
@@ -60,6 +61,8 @@ const Artworks = () => {
       contentContainerStyle={styles.contentContainerStyle}
       data={data}
       numColumns={2}
+      maxToRenderPerBatch={10}
+      windowSize={5}
       columnWrapperStyle={styles.columnWrapperStyle}
       renderItem={renderItem}
       onEndReached={onEndReached}
@@ -76,6 +79,7 @@ const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
     width: '100%',
+    backgroundColor: COLORS.white,
   },
   contentContainerStyle: {
     paddingTop: TOP_SPACE,

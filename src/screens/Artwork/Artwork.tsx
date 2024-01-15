@@ -29,15 +29,19 @@ const Artwork = () => {
   }
 
   return (
-    <SafeAreaView edges={['bottom']}>
+    <SafeAreaView edges={['bottom']} style={styles.safeArea}>
       <ScrollView>
         <View style={styles.imageContainer}>
           <Image
             style={styles.image}
             defaultSource={defaultImage}
-            source={{
-              uri: `https://www.artic.edu/iiif/2/${data?.image_id}/full/843,/0/default.jpg`,
-            }}
+            source={
+              data?.image_id
+                ? {
+                    uri: `https://www.artic.edu/iiif/2/${data?.image_id}/full/843,/0/default.jpg`,
+                  }
+                : defaultImage
+            }
             resizeMode={'contain'}
           />
         </View>
@@ -101,8 +105,10 @@ const Artwork = () => {
 export {Artwork};
 
 const styles = StyleSheet.create({
+  safeArea: {backgroundColor: COLORS.white},
   contentContainer: {
     paddingHorizontal: HORIZONTAL_SPACE,
+    backgroundColor: COLORS.white,
   },
   image: {
     width: Dimensions.get('window').width,

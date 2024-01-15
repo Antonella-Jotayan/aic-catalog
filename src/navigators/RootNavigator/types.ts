@@ -2,7 +2,7 @@ import {RouteProp} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 type RootNavigatorParams = {
-  Home: undefined;
+  Tabs: undefined;
   Artwork: {artworkId: number};
   Event: {eventId: number};
 };

@@ -7,19 +7,28 @@ import {Event} from '@app/screens/Event';
 
 export const RootStack = createNativeStackNavigator<RootNavigatorParams>();
 
+const options = {
+  artwork: {headerShown: true, headerBackTitle: 'Artworks'},
+  event: {
+    headerShown: true,
+    headerBackTitle: 'Events',
+  },
+};
+
 const RootNavigator = () => {
   return (
-    <RootStack.Navigator screenOptions={{headerShown: false}}>
-      <RootStack.Screen name="Home" component={TabNavigator} />
+    <RootStack.Navigator
+      screenOptions={{headerShown: false, headerTintColor: 'black'}}>
+      <RootStack.Screen name="Tabs" component={TabNavigator} />
       <RootStack.Screen
         name="Artwork"
         component={Artwork}
-        options={{headerShown: true, headerBackTitle: 'Home'}}
+        options={options.artwork}
       />
       <RootStack.Screen
         name="Event"
         component={Event}
-        options={{headerShown: true, headerBackTitle: 'Events'}}
+        options={options.event}
       />
     </RootStack.Navigator>
   );

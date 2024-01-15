@@ -32,9 +32,7 @@ const EventCard: FC<EventCardProps> = ({item, isMinimalContent = true}) => {
         <Image
           style={styles.image}
           defaultSource={defaultImage}
-          source={{
-            uri: `${item.image_url}`,
-          }}
+          source={item.image_url ? {uri: item.image_url} : defaultImage}
           resizeMode={'cover'}
         />
       </TouchableOpacity>

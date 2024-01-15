@@ -1,19 +1,35 @@
-import {StyleSheet, View} from 'react-native';
-import React, {FC} from 'react';
-import {Text} from '@app/components/ui/Text/Text';
+import {StyleSheet, View, useWindowDimensions} from 'react-native';
+import React, {FC, useMemo} from 'react';
+import {Text, textStyles} from '@app/components/ui/Text/Text';
 import {SizeConversion} from '@app/utils/sizeConversions';
 import {COLORS} from '@app/theme/colors';
+import RenderHTML from 'react-native-render-html';
 
 interface Section {
   title: string;
   description: string;
+  isHtml?: boolean;
 }
 
-const Section: FC<Section> = ({title, description}) => {
+const Section: FC<Section> = ({title, description, isHtml = false}) => {
+  const {width} = useWindowDimensions();
+  const htmlObj = useMemo(() => {
+    return {html: description};
+  }, [description]);
+
   return (
     <View style={styles.container}>
       <Text text={title} variant="subtitle-l-medium" />
-      <Text text={description} variant="body-s-regular" />
+
+      {isHtml ? (
+        <RenderHTML
+          source={htmlObj}
+          baseStyle={textStyles['body-s-regular']}
+          contentWidth={width}
+        />
+      ) : (
+        <Text text={description} variant="body-s-regular" />
+      )}
     </View>
   );
 };

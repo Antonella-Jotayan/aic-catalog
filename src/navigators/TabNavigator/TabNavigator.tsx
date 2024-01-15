@@ -1,52 +1,36 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {TabNavigatorParams} from './types';
 import {Artworks} from '@app/screens/Artworks';
 import {FavoriteEvents} from '@app/screens/FavoriteEvents';
-import {Icon} from '@app/components/ui/Icon/Icon';
+import {Icon, SvgImageName} from '@app/components/ui/Icon/Icon';
 import {COLORS} from '@app/theme/colors';
 import {Events} from '@app/screens/Events';
 
-export const BottomTab = createBottomTabNavigator<TabNavigatorParams>();
+const BottomTab = createBottomTabNavigator<TabNavigatorParams>();
+
+const tabBarIcon =
+  (name: SvgImageName) =>
+  ({focused}: {focused: boolean}) =>
+    <Icon name={name} color={focused ? COLORS.black : COLORS.gray[400]} />;
 
 export const TabNavigator = () => {
   return (
     <BottomTab.Navigator screenOptions={{tabBarShowLabel: false}}>
       <BottomTab.Screen
-        name="Home"
-        options={{
-          tabBarIcon: ({focused}) => (
-            <Icon
-              name="Home"
-              color={focused ? COLORS.black : COLORS.gray[400]}
-            />
-          ),
-        }}
-        component={Artworks}
-      />
-      <BottomTab.Screen
         name="Events"
-        options={{
-          tabBarIcon: ({focused}) => (
-            <Icon
-              name="Calendar"
-              color={focused ? COLORS.black : COLORS.gray[400]}
-            />
-          ),
-        }}
+        options={{tabBarIcon: tabBarIcon('Calendar')}}
         component={Events}
       />
       <BottomTab.Screen
         name="Favorites"
-        options={{
-          tabBarIcon: ({focused}) => (
-            <Icon
-              name="HeartOutlined"
-              color={focused ? COLORS.black : COLORS.gray[400]}
-            />
-          ),
-        }}
+        options={{tabBarIcon: tabBarIcon('HeartOutlined')}}
         component={FavoriteEvents}
+      />
+      <BottomTab.Screen
+        name="Artworks"
+        options={{tabBarIcon: tabBarIcon('LightBulb')}}
+        component={Artworks}
       />
     </BottomTab.Navigator>
   );

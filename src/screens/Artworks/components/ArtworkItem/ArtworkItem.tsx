@@ -25,9 +25,13 @@ const ArtworkItem: FC<ArtworkItem> = ({item}) => {
         <Image
           style={styles.image}
           defaultSource={defaultImage}
-          source={{
-            uri: `https://www.artic.edu/iiif/2/${item.image_id}/full/843,/0/default.jpg`,
-          }}
+          source={
+            item?.image_id
+              ? {
+                  uri: `https://www.artic.edu/iiif/2/${item.image_id}/full/843,/0/default.jpg`,
+                }
+              : defaultImage
+          }
           resizeMode={'cover'}
         />
       </TouchableOpacity>
