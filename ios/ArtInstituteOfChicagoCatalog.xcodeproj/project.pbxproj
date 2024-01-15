@@ -13,6 +13,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1994D5A30F3043C9BA345547 /* Lora-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6256EFC020E14DBC843E6F79 /* Lora-SemiBold.ttf */; };
+		606A6DDE2B54E37100A60466 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 606A6DDD2B54E37100A60466 /* BootSplash.storyboard */; };
 		68B8E855777948CB99CB61D6 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A870E74C7EBA47BCABBD1C92 /* Roboto-Medium.ttf */; };
 		7569BB57767C4FBF8B731955 /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A295097828845B6AD20A30E /* Lora-Regular.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -43,17 +44,18 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ArtInstituteOfChicagoCatalog/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ArtInstituteOfChicagoCatalog/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ArtInstituteOfChicagoCatalog/main.m; sourceTree = "<group>"; };
-		3A295097828845B6AD20A30E /* Lora-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lora-Regular.ttf"; path = "../src/assets/fonts/Lora-Regular.ttf"; sourceTree = "<group>"; };
-		56A448E349874A968788A084 /* Lora-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lora-Bold.ttf"; path = "../src/assets/fonts/Lora-Bold.ttf"; sourceTree = "<group>"; };
-		6256EFC020E14DBC843E6F79 /* Lora-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lora-SemiBold.ttf"; path = "../src/assets/fonts/Lora-SemiBold.ttf"; sourceTree = "<group>"; };
+		3A295097828845B6AD20A30E /* Lora-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lora-Regular.ttf"; path = "../src/assets/fonts/Lora-Regular.ttf"; sourceTree = "<group>"; };
+		56A448E349874A968788A084 /* Lora-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lora-Bold.ttf"; path = "../src/assets/fonts/Lora-Bold.ttf"; sourceTree = "<group>"; };
+		606A6DDD2B54E37100A60466 /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = ArtInstituteOfChicagoCatalog/BootSplash.storyboard; sourceTree = "<group>"; };
+		6256EFC020E14DBC843E6F79 /* Lora-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lora-SemiBold.ttf"; path = "../src/assets/fonts/Lora-SemiBold.ttf"; sourceTree = "<group>"; };
 		7717D9A621A8EE17F1523DAE /* Pods-ArtInstituteOfChicagoCatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtInstituteOfChicagoCatalog.debug.xcconfig"; path = "Target Support Files/Pods-ArtInstituteOfChicagoCatalog/Pods-ArtInstituteOfChicagoCatalog.debug.xcconfig"; sourceTree = "<group>"; };
 		7DD1ECD86B6F4EFB3E247A18 /* Pods-ArtInstituteOfChicagoCatalog-ArtInstituteOfChicagoCatalogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtInstituteOfChicagoCatalog-ArtInstituteOfChicagoCatalogTests.release.xcconfig"; path = "Target Support Files/Pods-ArtInstituteOfChicagoCatalog-ArtInstituteOfChicagoCatalogTests/Pods-ArtInstituteOfChicagoCatalog-ArtInstituteOfChicagoCatalogTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ArtInstituteOfChicagoCatalog/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		99E36E58B4B14A9EB33BD7F5 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../src/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
-		A870E74C7EBA47BCABBD1C92 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../src/assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		99E36E58B4B14A9EB33BD7F5 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../src/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		A870E74C7EBA47BCABBD1C92 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../src/assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		C6D4E228EF7A587152364164 /* libPods-ArtInstituteOfChicagoCatalog-ArtInstituteOfChicagoCatalogTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtInstituteOfChicagoCatalog-ArtInstituteOfChicagoCatalogTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D14342A91D96D051231EEA9A /* libPods-ArtInstituteOfChicagoCatalog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtInstituteOfChicagoCatalog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E61DCE08E15040E8B71DBBDC /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../src/assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		E61DCE08E15040E8B71DBBDC /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../src/assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		EA29E38C79B1F6328EF589D7 /* Pods-ArtInstituteOfChicagoCatalog-ArtInstituteOfChicagoCatalogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtInstituteOfChicagoCatalog-ArtInstituteOfChicagoCatalogTests.debug.xcconfig"; path = "Target Support Files/Pods-ArtInstituteOfChicagoCatalog-ArtInstituteOfChicagoCatalogTests/Pods-ArtInstituteOfChicagoCatalog-ArtInstituteOfChicagoCatalogTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				606A6DDD2B54E37100A60466 /* BootSplash.storyboard */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -129,7 +132,6 @@
 				E61DCE08E15040E8B71DBBDC /* Roboto-Regular.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -271,6 +273,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				C18BD26DC2C44F039DA04A74 /* Lora-Bold.ttf in Resources */,
+				606A6DDE2B54E37100A60466 /* BootSplash.storyboard in Resources */,
 				7569BB57767C4FBF8B731955 /* Lora-Regular.ttf in Resources */,
 				1994D5A30F3043C9BA345547 /* Lora-SemiBold.ttf in Resources */,
 				086C6E89EC1D4D3FAE3A8CDD /* Montserrat-Regular.ttf in Resources */,
