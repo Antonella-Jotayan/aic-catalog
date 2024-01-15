@@ -5,7 +5,7 @@ import {EventDTO} from '@app/api/models/Event/Event';
 import {WrappedQueryOptions} from '@app/api/models/queryOptions/QueryOptions';
 
 type useGetEventProps = {
-  eventId: number;
+  eventId: EventDTO['id'];
   queryOptions?: WrappedQueryOptions<EventDTO>;
 };
 
