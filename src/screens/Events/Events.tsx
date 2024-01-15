@@ -8,8 +8,9 @@ import {
 import {SizeConversion} from '@app/utils/sizeConversions';
 import {useGetEvents} from '@app/api/queries/Event/hooks/useGetEvents';
 import type {EventDTO} from '@app/api/models/Event/Event';
-import {Text} from '@app/components/ui/Text/Text';
 import {EventCard} from '@app/components/EventCard/EventCard';
+import {LoadingData} from '@app/components/LoadingData/LoadingData';
+import {NoData} from '@app/components/NoData/NoData';
 
 const LIMIT = 15;
 const TOP_SPACE = SizeConversion.pixelSizeVertical(30);
@@ -39,15 +40,11 @@ const Events = () => {
   }, [isFetchingNextPage]);
 
   if (isLoading) {
-    return <ActivityIndicator style={styles.loading} />;
+    return <LoadingData />;
   }
 
-  if (isError) {
-    return <Text text="ERROR" />;
-  }
-
-  if (!data && !isLoading) {
-    return <Text text="NO DATA" />;
+  if (!isLoading && (isError || !data)) {
+    return <NoData text="Unable to show Events" />;
   }
 
   return (

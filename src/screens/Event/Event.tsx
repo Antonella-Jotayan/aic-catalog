@@ -3,13 +3,7 @@ import {COLORS} from '@app/theme/colors';
 import {SizeConversion} from '@app/utils/sizeConversions';
 import {useRoute} from '@react-navigation/native';
 import React, {useMemo} from 'react';
-import {
-  ActivityIndicator,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import Section from './components/Section/Section';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useGetEvent} from '@app/api/queries/Event/hooks/useGetEvent';
@@ -18,6 +12,8 @@ import FastImage from 'react-native-fast-image';
 import {Icon} from '@app/components/ui/Icon/Icon';
 import {useFavoritesStore} from '@app/store/FavoritesStore';
 import {useShallow} from 'zustand/react/shallow';
+import {NoData} from '@app/components/NoData/NoData';
+import {LoadingData} from '@app/components/LoadingData/LoadingData';
 
 const HORIZONTAL_SPACE = SizeConversion.pixelSizeHorizontal(30);
 const HIT_SLOP = {bottom: 40, left: 40, right: 40, top: 40};
@@ -44,11 +40,11 @@ const Event = () => {
   }, [data?.id, favorites]);
 
   if (!data || isLoading || isFetching) {
-    return <ActivityIndicator style={styles.loading} />;
+    return <LoadingData />;
   }
 
-  if (isError && !isLoading) {
-    return <Text text="ERROR" />;
+  if (!isLoading && (isError || !data)) {
+    return <NoData text="Unable to show Event" />;
   }
 
   const handleFavorite = () => {
